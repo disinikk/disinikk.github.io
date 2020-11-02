@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        style.css
+    .infobox { margin-top: 15px; }
+    .error { color: red; } 
+    .result { color: blue; }
+    </style>
+</head>    
+
+
+<body>
+    <script>
+        $(document).ready(function() { 
+            $('.error').hide();                                                                                             //menyembunyikan class .error
+            $('.submit').click(function(event){                                                                             //membuat event klik terkait dengan class .submit
+                var amt=0;                                                                                                  //menset nilai variabel amt menjadi 0
+                var count=$('input:checked').length;                                                                        //menset nilai variabel count menjadi suatu nilai dengan cara menghitung berapa banyak radio button yang dipilih
+                if(count==0)                                                                                                     //jika tidak ada radio button yang dipilih (count==0), maka
+                { 
+                    $('p.result').hide();                                                                                               //class .result akan disembunyikan (tidak ditampilkan)
+                    $('.error').show();                                                                                                 //class .error akan ditampilkan
+                } 
+                else                                                                                                             //jika ada radio button yang dipilih (else dari count==0), maka
+                { 
+                    $('.error').hide();                                                                                                 //class .error akan disembunyikan
+                    $('p.result').show();                                                                                               //class .result akan ditampilkan
+                    $('p.result').text('Anda telah memilih baju dengan ukuran '+$('input:checked').attr("value"));                      //teks dari class .result akan ditampilkan dengan tambahan teks dari input dengan atribut "value"
+                } 
+            event.preventDefault();
+            }); 
+        }); 
+    </script>
+    <form>
+        <h3>Pilih ukuran baju anda:</h3>
+        <input type="radio" name="paymode" class="infobox" value="S">Size S <br>
+        <input type="radio" name="paymode" class="infobox" value="M">Size M <br>
+        <input type="radio" name="paymode" class="infobox" value="L">Size L<br>
+        <input type="radio" name="paymode" class="infobox" value="XL">Size XL<br>
+        <input type="radio" name="paymode" class="infobox" value="XXL">Size XXL<br>
+        <p class="error">Pilih salah satu ukuran </p>
+        <p class="result"></p>
+        <input class="submit" type="submit" value="Submit">
+        </form>
+</body>
+
+</html>
