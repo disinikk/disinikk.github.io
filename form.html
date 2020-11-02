@@ -30,7 +30,7 @@
                     $('p.result').show();                                                                                               //class .result akan ditampilkan
                     $('p.result').text('Anda telah memilih baju dengan ukuran '+$('input:checked').attr("value"));                      //teks dari class .result akan ditampilkan dengan tambahan teks dari input dengan atribut "value"
                 } 
-            event.preventDefault();
+            event.preventDefault();                                                                                         //membuat fungsi tersebut tidak dapat terulang kembali setelah event sebelumnya
             }); 
         }); 
     </script>
